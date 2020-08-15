@@ -1,4 +1,11 @@
 # k8s-monitoring-with-influxdb-heapster
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm  install --name influxdb-helm --namespace monitoring  bitnami/influxdb --set persistence.storageClass=csi-sc-cinderplugin --set database=k8s --set authEnabled=false
+
+
+
+grafana dashboard:
 ~~~
 namespace	SHOW TAG VALUES FROM "uptime" WITH KEY = "namespace_name"
 
